@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registration"
+    android:background="@drawable/background">
+
+
+ <TextView
+     android:id="@+id/deepFakeDetector"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_centerHorizontal="true"
+     android:layout_marginTop="20dp"
+     android:text="Deep Fake Detector "
+     android:textColor="@color/black"
+     android:textSize="30dp"
+     android:textStyle="bold"></TextView>
+
+ <TextView
+     android:id="@+id/homepage"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="Home Page "
+     android:textColor="@color/black"
+     android:layout_centerHorizontal="true"
+     android:textSize="30dp"
+     android:textStyle="bold"
+     android:layout_below="@id/deepFakeDetector"
+     android:layout_marginTop="20dp"
+
+     ></TextView>
+
+
+ <TextView
+     android:id="@+id/usernameR"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_centerHorizontal="true"
+     android:text="  Deep Fakes:   video URL"
+     android:layout_marginTop="200dp"
+     android:textSize="20dp"
+     android:textColor="@color/black"
+     android:ems="10"
+     android:drawablePadding="10dp"
+     />
+
+ <TextView
+     android:id="@+id/detected"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_below="@+id/usernameR"
+     android:layout_centerHorizontal="true"
+     android:text="  DeepFake Videos:     10   "
+
+     android:layout_marginTop="30dp"
+     android:textSize="20dp"
+     android:textColor="@color/black"
+     android:ems="10"
+     android:drawablePadding="10dp"
+     />
+
+ <TextView
+     android:id="@+id/OnOffMsg"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="Pause on this site"
+     android:layout_below="@id/detected"
+     android:layout_marginTop="30dp"
+     android:layout_centerHorizontal="true"
+     android:textSize="20dp"
+     android:textStyle="bold"
+     android:textColor="@color/black"
+     />
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_below="@id/OnOffMsg"
+     android:gravity="center">
+
+
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/detected"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="20dp"
+      android:text="Once"
+      android:textStyle="bold"/>
+
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/detected"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="20dp"
+      android:text="Always"
+      android:layout_marginLeft="20dp"
+      android:textStyle="bold"/>
+
+ </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

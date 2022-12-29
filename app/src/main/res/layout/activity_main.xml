@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/loginlogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/login2"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/deepFakeDetector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deep Fake Detector "
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="25dp"
+        android:layout_below="@id/loginlogo"
+        android:textStyle="bold"
+        ></TextView>
+
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/user"
+        android:layout_below="@id/deepFakeDetector"
+        android:drawablePadding="10dp"
+        android:ems="8"
+        android:hint="Username"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"></EditText>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/password"
+        android:drawablePadding="10dp"
+        android:ems="8"
+
+        android:hint=" Password"
+        android:inputType="textPassword"
+        android:textSize="25dp"
+        android:textStyle="bold"></EditText>
+
+    <TextView
+        android:id="@+id/forgetPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password? Click here."
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:layout_below="@id/password"
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="70dp"
+        android:text="Submit"
+        android:textStyle="bold"></Button>
+
+    <TextView
+        android:id="@+id/footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/submitBtn"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:onClick="onClick"
+        android:text="Don't have an account yet? Click here."
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+
+</RelativeLayout>
