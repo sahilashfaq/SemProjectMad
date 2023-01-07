@@ -13,7 +13,7 @@
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
      android:layout_centerHorizontal="true"
-     android:layout_marginTop="20dp"
+     android:layout_marginTop="40dp"
      android:text="Deep Fake Detector "
      android:textColor="@color/black"
      android:textSize="30dp"
@@ -76,6 +76,7 @@
      />
 
  <LinearLayout
+     android:id="@+id/buttonsLayout"
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
      android:layout_below="@id/OnOffMsg"
@@ -90,7 +91,8 @@
       android:layout_centerHorizontal="true"
       android:layout_marginTop="20dp"
       android:text="Once"
-      android:textStyle="bold"/>
+      android:textStyle="bold"
+     />
 
   <Button
       android:layout_width="wrap_content"
@@ -100,11 +102,44 @@
       android:layout_marginTop="20dp"
       android:text="Always"
       android:layout_marginLeft="20dp"
-      android:textStyle="bold"/>
+      android:textStyle="bold"
+     />
 
  </LinearLayout>
 
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:id="@+id/seeDetails"
+    android:layout_below="@id/popUpButton"
+    android:text="See Details"
+    android:textStyle="bold"
+    android:textSize="20dp"
+    android:textColor="@color/black"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"/>
 
+ <Button
+     android:id="@+id/popUpButton"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_centerHorizontal="true"
+     android:text="Show Pop Up"
+     android:onClick="showPopUp"
+     android:layout_below="@id/buttonsLayout"
+     android:layout_marginTop="20dp"/>
+
+ <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="match_parent"
+     android:id="@+id/TextViewForContextMenu"
+     android:layout_below="@id/popUpButton"
+     android:text="Context Menu"
+     android:textStyle="bold"
+     android:textSize="20dp"
+     android:layout_centerHorizontal="true"
+     android:layout_marginTop="60dp"
+     android:textColor="@color/black"/>
 
 
 

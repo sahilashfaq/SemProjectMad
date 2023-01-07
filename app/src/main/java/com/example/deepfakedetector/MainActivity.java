@@ -53,14 +53,20 @@ public class MainActivity extends AppCompatActivity  {
                 }
                 else
                 {
-                    Intent intent = new Intent(MainActivity.this, RecieverActivity.class);
+                    /*Intent intent = new Intent(MainActivity.this, RecieverActivity.class);
                     usernameResult = username.getText().toString();
                     intent.putExtra("value1",usernameResult);
 
                     passwordResult = password.getText().toString();
                     intent.putExtra("value2",passwordResult);
 
+                    startActivity(intent);*/
+
+                    Intent intent = new Intent(MainActivity.this, LandingPage.class);
                     startActivity(intent);
+                    Toast.makeText(MainActivity.this, "Successfully Logged In.", Toast.LENGTH_LONG).show();
+
+
                 }
             }
         });

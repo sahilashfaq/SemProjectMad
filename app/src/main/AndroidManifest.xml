@@ -13,6 +13,14 @@
         android:theme="@style/Theme.DeepFakeDetector"
         tools:targetApi="31">
         <activity
+            android:name=".customListView"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+
             android:name=".LandingPage"
             android:exported="false">
             <meta-data
@@ -20,14 +28,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".spinner"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".listview"
+            android:name=".mainlistview"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
