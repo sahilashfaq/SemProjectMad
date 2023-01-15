@@ -18,18 +18,20 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
-    EditText email,password;
+    EditText email, password;
     Button submit;
-    String usernameResult,passwordResult;
+    String usernameResult, passwordResult;
     TextView openLogin;
     TextView forgetPassword;
-    private FirebaseAuth mAuth;
-    ProgressBar progressBar;
-    String emailStr,passwordStr;
+    FirebaseAuth mAuth;
+    FirebaseUser mUser;
+    String emailStr, passwordStr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity  {
         password = findViewById(R.id.password);
         submit = findViewById(R.id.submitBtn);
         openLogin = findViewById(R.id.footer);
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
 
         forgetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,66 +63,59 @@ public class MainActivity extends AppCompatActivity  {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(TextUtils.isEmpty(email.getText().toString()))
-                {
+
+                //Validations
+                if (TextUtils.isEmpty(email.getText().toString())) {
                     Toast.makeText(MainActivity.this, "Empty fields not allowed", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    /*Intent intent = new Intent(MainActivity.this, RecieverActivity.class);
-                    usernameResult = username.getText().toString();
-                    intent.putExtra("value1",usernameResult);
+                } else {
 
-                    passwordResult = password.getText().toString();
-                    intent.putExtra("value2",passwordResult);
+                    emailStr = email.getText().toString();
+                    passwordStr = password.getText().toString();
 
-                    startActivity(intent);*/
-
-                    /*Intent intent = new Intent(MainActivity.this, LandingPage.class);
-                    startActivity(intent);
-                    Toast.makeText(MainActivity.this, "Successfully Logged In.", Toast.LENGTH_LONG).show();*/
-
-                     emailStr = email.getText().toString();
-                     passwordStr = password.getText().toString();
-
-                    if(emailStr.isEmpty()){
+                    if (emailStr.isEmpty()) {
                         email.setError("Email is required!");
                         email.requestFocus();
-                    }
-                    else if(passwordStr.isEmpty()){
+                    } else if (passwordStr.isEmpty()) {
                         email.setError("Password is required!");
                         password.requestFocus();
                         return;
-                    }
-                    else if(passwordStr.length()<8){
+                    } else if (passwordStr.length() < 8) {
                         password.setError("Minimum length of password is 8!");
                         password.requestFocus();
                         return;
                     }
-                    progressBar.setVisibility(View.VISIBLE);
-                    mAuth.signInWithEmailAndPassword(emailStr,passwordStr).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    //Firebase Authentication
+                    mAuth.signInWithEmailAndPassword(emailStr, passwordStr).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()) {
-                                startActivity(new Intent(MainActivity.this,LandingPage.class));
-                            }
-                            else{
-                                Toast.makeText(MainActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                            if (task.isSuccessful()) {
+                                isLandingPage();
+                                Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+
                             }
                         }
                     });
+
                 }
             }
         });
     }
 
-public void openRegistrationPage(){
-        Intent intent = new Intent(this,Registration.class);
+    private void isLandingPage() {
+        Intent intent = new Intent(this, LandingPage.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
-}
-public void forgetPass(){
-    Intent intent = new Intent(this,forgotPassword.class);
-    startActivity(intent);
+    }
+
+    public void openRegistrationPage() {
+        Intent intent = new Intent(this, Registration.class);
+        startActivity(intent);
+    }
+
+    public void forgetPass() {
+        Intent intent = new Intent(this, forgotPassword.class);
+        startActivity(intent);
     }
 }
-
