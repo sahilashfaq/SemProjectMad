@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactusFragment">
+
+    <RelativeLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background">
+
+        <TextView
+            android:id="@+id/ContactUsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact Us"
+            android:layout_centerHorizontal="true"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:id="@+id/msg"
+            android:layout_below="@+id/ContactUsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Got a question? We'd love to hear from you."
+            android:layout_centerHorizontal="true"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:id="@+id/contactusmsg"
+            android:layout_below="@+id/ContactUsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Got a question? We'd love to hear from you."
+            android:layout_centerHorizontal="true"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"/>
+
+        <EditText
+            android:id="@+id/NameText"
+            android:layout_below="@id/msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="8"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawablePadding="10dp"
+            />
+
+        <EditText
+            android:id="@+id/EmailText"
+            android:layout_below="@id/NameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:drawableLeft="@drawable/ic_baseline_email_24"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="8"
+            android:drawablePadding="10dp"
+            />
+
+        <EditText
+            android:id="@+id/MessageText"
+            android:layout_below="@id/EmailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Message"
+            android:drawableLeft="@drawable/ic_baseline_message_24"
+            android:inputType="textEmailAddress"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="8"
+            android:drawablePadding="10dp"
+            />
+
+        <Button
+            android:id="@+id/SendDetailsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/MessageText"
+            android:text="Send Message"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            />
+
+        <Button
+            android:id="@+id/showmaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/SendDetailsBtn"
+            android:text="Maps"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+
+            />
+
+
+
+
+    </RelativeLayout>
+    <!-- TODO: Update blank fragment layout -->
+
+</FrameLayout>

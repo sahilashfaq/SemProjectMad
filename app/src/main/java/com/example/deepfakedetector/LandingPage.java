@@ -2,6 +2,9 @@ package com.example.deepfakedetector;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -19,14 +22,18 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.deepfakedetector.databinding.ActivityMainBinding;
+import com.google.android.material.navigation.NavigationBarItemView;
+
 import java.util.zip.Inflater;
 
 public class LandingPage extends AppCompatActivity{
 
     TextView seeDetails;
     TextView TextViewForContextMenu;
-    Button popupButton;
+    Button showContactUsPageBtn;
     TextView seeModules,showContactUsPage;
+    ActivityMainBinding binding;
 
 
     @SuppressLint("MissingInflatedId")
@@ -34,6 +41,30 @@ public class LandingPage extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
+        showContactUsPageBtn = findViewById(R.id.showContactUsPageBtn);
+        showContactUsPageBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                gotoSeeContactUs();
+            }
+        });
+
+        /*binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        NavigationBarItemView navigationBarItemView = findViewById(R.id.BottomNavigationView);
+        navigationBarItemView.setOnClickListener(item->{
+            switch (item.getId()){
+                case R.id.homeID:
+                    replaceFragment(new ContactusFragment());
+                    break;
+                case R.id.settingID:
+                    break;
+                case R.id.profileID:
+                    break;
+            }
+        });
+
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getSupportActionBar().hide();
@@ -141,14 +172,14 @@ public class LandingPage extends AppCompatActivity{
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-        }*/
+        }
         showContactUsPage = findViewById(R.id.showContactUsPage);
         showContactUsPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LandingPage.this,ContactUs.class));
             }
-        });
+        });*/
     }
     public void seeModulesMethod(){
         Intent intent = new Intent(this,seeModules.class);
@@ -158,4 +189,15 @@ public class LandingPage extends AppCompatActivity{
         Intent intent = new Intent(this,mainlistview.class);
         startActivity(intent);
     }
+
+    public void gotoSeeContactUs(){
+        Intent intent = new Intent(this,ContactUs.class);
+        startActivity(intent);
+    }
+    /*public void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout,fragment);
+        fragmentTransaction.commit();
+    }*/
 }
