@@ -10,7 +10,7 @@
 
     <item
         android:id="@+id/item2"
-        android:title="Node Server Details"
+        android:title="Home"
         app:showAsAction="never"
         />
 

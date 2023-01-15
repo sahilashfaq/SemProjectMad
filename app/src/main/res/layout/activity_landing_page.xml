@@ -107,50 +107,24 @@
 
  </LinearLayout>
 
+
 <TextView
+    android:layout_below="@id/buttonsLayout"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:id="@+id/seeDetails"
-    android:layout_below="@id/popUpButton"
-    android:text="See Details"
+    android:id="@+id/showContactUsPage"
+    android:text="Contact us"
     android:textStyle="bold"
     android:textSize="20dp"
     android:textColor="@color/black"
     android:layout_centerHorizontal="true"
     android:layout_marginTop="20dp"/>
 
- <TextView
-     android:layout_width="wrap_content"
-     android:layout_height="match_parent"
-     android:id="@+id/seeModules"
-     android:layout_below="@id/popUpButton"
-     android:text="See Modules"
-     android:textStyle="bold"
-     android:textSize="20dp"
-     android:textColor="@color/black"
-     android:layout_centerHorizontal="true"
-     android:layout_marginTop="50dp"/>
-
- <Button
-     android:id="@+id/popUpButton"
-     android:layout_width="wrap_content"
+ <com.google.android.material.bottomnavigation.BottomNavigationView
+     android:layout_width="match_parent"
      android:layout_height="wrap_content"
-     android:layout_centerHorizontal="true"
-     android:text="Show Popup"
-     android:onClick="showPopUp"
-     android:layout_below="@id/buttonsLayout"
-     android:layout_marginTop="20dp"/>
-
- <TextView
-     android:layout_width="wrap_content"
-     android:layout_height="match_parent"
-     android:id="@+id/TextViewForContextMenu"
-     android:layout_below="@id/popUpButton"
-     android:text="Context Menu"
-     android:textStyle="bold"
-     android:textSize="20dp"
-     android:layout_centerHorizontal="true"
-     android:layout_marginTop="80dp"
-     android:textColor="@color/black"/>
+     android:layout_alignParentBottom="true"
+     app:menu="@menu/menu"
+     />
 
 </RelativeLayout>

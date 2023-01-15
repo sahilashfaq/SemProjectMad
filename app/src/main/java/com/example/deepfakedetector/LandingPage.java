@@ -3,6 +3,7 @@ package com.example.deepfakedetector;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -20,13 +21,15 @@ import android.widget.Toast;
 
 import java.util.zip.Inflater;
 
-public class LandingPage extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
+public class LandingPage extends AppCompatActivity{
 
     TextView seeDetails;
     TextView TextViewForContextMenu;
     Button popupButton;
-    TextView seeModules;
+    TextView seeModules,showContactUsPage;
 
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +38,7 @@ public class LandingPage extends AppCompatActivity implements PopupMenu.OnMenuIt
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getSupportActionBar().hide();
 
-        seeModules = findViewById(R.id.seeModules);
+       /* seeModules = findViewById(R.id.seeModules);
         seeModules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,7 +141,14 @@ public class LandingPage extends AppCompatActivity implements PopupMenu.OnMenuIt
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-        }
+        }*/
+        showContactUsPage = findViewById(R.id.showContactUsPage);
+        showContactUsPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LandingPage.this,ContactUs.class));
+            }
+        });
     }
     public void seeModulesMethod(){
         Intent intent = new Intent(this,seeModules.class);

@@ -30,12 +30,8 @@ public class MainActivity extends AppCompatActivity {
     TextView forgetPassword;
     FirebaseAuth mAuth;
     FirebaseUser mUser;
-<<<<<<< HEAD
     String emailStr, passwordStr;
 
-=======
-    String emailStr,passwordStr;
->>>>>>> fec418f5082803f3207cc812dad9c83e0cae244f
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,13 +59,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 //Validations
-<<<<<<< HEAD
                 if (TextUtils.isEmpty(email.getText().toString())) {
                     Toast.makeText(MainActivity.this, "Empty fields not allowed", Toast.LENGTH_SHORT).show();
                 } else {
@@ -78,19 +72,6 @@ public class MainActivity extends AppCompatActivity {
                     passwordStr = password.getText().toString();
 
                     if (emailStr.isEmpty()) {
-=======
-                if(TextUtils.isEmpty(email.getText().toString()))
-                {
-                    Toast.makeText(MainActivity.this, "Empty fields not allowed", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-
-                     emailStr = email.getText().toString();
-                     passwordStr = password.getText().toString();
-
-                    if(emailStr.isEmpty()){
->>>>>>> fec418f5082803f3207cc812dad9c83e0cae244f
                         email.setError("Email is required!");
                         email.requestFocus();
                     } else if (passwordStr.isEmpty()) {
@@ -103,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
                         return;
                     }
                     //Firebase Authentication
-<<<<<<< HEAD
                     mAuth.signInWithEmailAndPassword(emailStr, passwordStr).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -112,40 +92,18 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
-=======
-                    mAuth.signInWithEmailAndPassword(emailStr,passwordStr).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                isLandingPage();
-                                Toast.makeText(MainActivity.this,"Login Successfully",Toast.LENGTH_SHORT).show();
-                            }
-                            else {
-                                Toast.makeText(MainActivity.this,"Login Failed",Toast.LENGTH_SHORT).show();
->>>>>>> fec418f5082803f3207cc812dad9c83e0cae244f
 
                             }
                         }
                     });
-
                 }
             }
         });
     }
 
     private void isLandingPage() {
-<<<<<<< HEAD
         Intent intent = new Intent(this, LandingPage.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-=======
-        Intent intent = new Intent(this,LandingPage.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-    }
-
-    public void openRegistrationPage(){
-        Intent intent = new Intent(this,Registration.class);
->>>>>>> fec418f5082803f3207cc812dad9c83e0cae244f
         startActivity(intent);
     }
 

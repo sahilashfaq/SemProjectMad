@@ -40,11 +40,7 @@ public class Registration extends AppCompatActivity {
         registerButton = findViewById(R.id.submitBtnR);
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> fec418f5082803f3207cc812dad9c83e0cae244f
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,15 +86,9 @@ public class Registration extends AppCompatActivity {
             public void onClick(View view) { gotoLogin(); }
         });
     }
-    public void gotoLogin(){
-<<<<<<< HEAD
-        Intent intent = new Intent(this,MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+    public void gotoLogin() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
-=======
-            Intent intent = new Intent(this,MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
->>>>>>> fec418f5082803f3207cc812dad9c83e0cae244f
     }
 }
