@@ -1,5 +1,6 @@
 package com.example.deepfakedetector;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,28 +12,42 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class Registration extends AppCompatActivity {
 
     TextView SignIn;
     TextView username,email,password;
     Button registerButton;
+    FirebaseAuth mAuth;
+    FirebaseUser mUser;
+    String emailStr;
+    String passwordStr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-       // getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-       // getSupportActionBar().setCustomView(R.layout.activity_registration);
+
 
         username = findViewById(R.id.usernameR);
         email = findViewById(R.id.emailR);
         password = findViewById(R.id.passwordR);
         registerButton = findViewById(R.id.submitBtnR);
-        DAOUser dao = new DAOUser();
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
         
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                emailStr = email.getText().toString();
+                passwordStr = password.getText().toString();
+
                 if(TextUtils.isEmpty(username.getText().toString()))
                 {
                     Toast.makeText(Registration.this, "Please enter username.", Toast.LENGTH_SHORT).show();
@@ -47,17 +62,19 @@ public class Registration extends AppCompatActivity {
                 }
                 else
                 {
-                    user newUser = new user(username.getText().toString(),email.getText().toString(),password.getText().toString());
-                    dao.add(newUser).addOnSuccessListener(suc->{
-                        Toast.makeText(Registration.this, "Successfully Registered.", Toast.LENGTH_SHORT).show();
-                        gotoLogin();
+                    //Firebase Authentication
+                    mAuth.createUserWithEmailAndPassword(emailStr,passwordStr).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(Registration.this,"Registration Successfully",Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                Toast.makeText(Registration.this,"Registration Failed",Toast.LENGTH_SHORT).show();
 
-                    }).addOnFailureListener(er->{
-                        Toast.makeText(Registration.this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
-
+                            }
+                        }
                     });
-                    //gotoLogin();
-                    //Toast.makeText(Registration.this, "Account Created! Now Login your account.", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -71,6 +88,7 @@ public class Registration extends AppCompatActivity {
     }
     public void gotoLogin(){
             Intent intent = new Intent(this,MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
     }
 }
