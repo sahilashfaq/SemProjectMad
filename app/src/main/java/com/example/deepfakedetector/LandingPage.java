@@ -25,6 +25,7 @@ public class LandingPage extends AppCompatActivity implements PopupMenu.OnMenuIt
     TextView seeDetails;
     TextView TextViewForContextMenu;
     Button popupButton;
+    TextView seeModules;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +35,19 @@ public class LandingPage extends AppCompatActivity implements PopupMenu.OnMenuIt
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getSupportActionBar().hide();
 
+        seeModules = findViewById(R.id.seeModules);
+        seeModules.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                seeModulesMethod();
+            }
+        });
+
+        // Context Menu
         TextViewForContextMenu = findViewById(R.id.TextViewForContextMenu);
         registerForContextMenu(TextViewForContextMenu);
 
+        // Popup Button
         popupButton = findViewById(R.id.popUpButton);
 
         seeDetails = findViewById(R.id.seeDetails);
@@ -128,6 +139,10 @@ public class LandingPage extends AppCompatActivity implements PopupMenu.OnMenuIt
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+    public void seeModulesMethod(){
+        Intent intent = new Intent(this,seeModules.class);
+        startActivity(intent);
     }
     public void gotoSeeDetails(){
         Intent intent = new Intent(this,mainlistview.class);

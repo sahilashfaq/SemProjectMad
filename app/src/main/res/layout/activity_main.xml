@@ -30,16 +30,16 @@
 
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:drawableLeft="@drawable/user"
+        android:drawableLeft="@drawable/email"
         android:layout_below="@id/deepFakeDetector"
         android:drawablePadding="10dp"
         android:ems="8"
-        android:hint="Username"
+        android:hint="Email"
         android:textSize="25dp"
         android:textStyle="bold"
         android:textColor="@color/black"></EditText>
@@ -48,14 +48,14 @@
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
+        android:layout_below="@+id/email"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/password"
         android:drawablePadding="10dp"
-        android:ems="8"
 
-        android:hint=" Password"
+        android:ems="8"
+        android:hint="Password"
         android:inputType="textPassword"
         android:textSize="25dp"
         android:textStyle="bold"></EditText>
@@ -82,7 +82,8 @@
         android:layout_marginLeft="230dp"
         android:layout_marginTop="70dp"
         android:text="Submit"
-        android:textStyle="bold"></Button>
+        android:textStyle="bold"
+        ></Button>
 
     <TextView
         android:id="@+id/footer"
